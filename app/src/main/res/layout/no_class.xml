@@ -10,7 +10,8 @@
             android:src="@mipmap/no_classes"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:contentDescription="@string/no_classes"/>
     <TextView
             android:text="@string/no_classes"
             android:textColor="#2c3e50"

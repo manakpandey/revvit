@@ -30,5 +30,7 @@
     <string name="reset_time_table">Reset Time Table</string>
     <string name="feedback_nav_menu">Feedback</string>
     <string name="sign_out">Sign Out</string>
+    <string name="no_classes">No Classes</string>
+    <string name="sign_in">Sign in</string>
 
 </resources>

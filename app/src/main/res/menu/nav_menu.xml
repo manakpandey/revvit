@@ -26,7 +26,7 @@
         <item
                 android:icon="@drawable/googleg_standard_color_18"
                 android:id="@+id/nav_login"
-                android:title="Sign in"/>
+                android:title="@string/sign_in"/>
     </group>
 
 
