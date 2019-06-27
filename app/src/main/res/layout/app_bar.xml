@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView
+            android:layout_margin="5dp"
+            app:cardCornerRadius="8dp"
+            android:elevation="15dp"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/action_bar"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+            <FrameLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatImageButton
+                        android:padding="5dp"
+                        style="@style/AppBarButton"
+                        android:id="@+id/nav_button"
+                        android:src="@drawable/ic_round_menu_24px"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/nav_button_description"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/search_fac"
+                        android:src="@drawable/ic_round_search_24px"
+                        style="@style/AppBarButton"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </FrameLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </androidx.cardview.widget.CardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

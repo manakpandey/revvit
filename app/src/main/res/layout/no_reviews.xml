@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:src="@drawable/ic_quill_drawing_a_line_128"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+            android:text="@string/write_a_review"
+            style="@style/myButton"
+            android:id="@+id/add_review_button_large"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:text="@string/no_reviews_yet"
+            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/greatvibes_regular"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_margin="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</FrameLayout>

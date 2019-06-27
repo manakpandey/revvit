@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="?android:attr/selectableItemBackground"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/search_result_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/fac_name_search"
+                android:layout_marginTop="5dp"
+                android:textColor="#2c3e50"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/fac_school_search"
+                android:textSize="12sp"
+                android:textColor="#2471a3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

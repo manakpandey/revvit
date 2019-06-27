@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".AddReviewActivity">
+    <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_feedback"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+            <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageButton
+                        android:src="@drawable/ic_round_arrow_back_24px"
+                        android:layout_centerVertical="true"
+                        style="@style/AppBarButton"
+                        android:id="@+id/back_button_add_review"
+                        android:padding="10dp"
+                        android:contentDescription="@string/back_button_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:layout_toEndOf="@id/back_button_add_review"
+                        android:layout_margin="14dp"
+                        android:text="@string/add_review_heading"
+                        android:textColor="@color/appBarContent"
+                        android:textSize="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+        <TextView
+                android:id="@+id/fac_name_review"
+                android:textSize="22sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/fac_school_review"
+                android:layout_margin="10dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/add_review_hint"
+                android:id="@+id/review"
+                android:inputType="textMultiLine"
+                android:maxLines="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+            android:text="@string/submit_review_button"
+            app:cornerRadius="10dp"
+            android:layout_margin="12dp"
+            android:padding="12dp"
+            android:elevation="8dp"
+            android:textAllCaps="false"
+            android:id="@+id/submit_review"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_gravity="bottom|end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

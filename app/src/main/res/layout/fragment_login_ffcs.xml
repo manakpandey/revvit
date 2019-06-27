@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:text="@string/login_to_ffcs_info"
+            android:textSize="20sp"
+            android:id="@+id/sync_info"
+            android:textColor="#2c3e50"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="25dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+            android:padding="10dp"
+            android:layout_below="@id/sync_info"
+            android:id="@+id/login_ffcs_button"
+            style="@style/myButton"
+            android:text="@string/login_to_ffcs_button"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>
