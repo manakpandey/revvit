@@ -1,6 +1,8 @@
 package com.mdev.revit
 
+import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Build
@@ -16,6 +18,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.actions.SearchIntents
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {
@@ -38,7 +41,6 @@ class SearchActivity : AppCompatActivity() {
             enterTransition = fade
         }
         setContentView(R.layout.activity_search)
-
         val model = ViewModelProviders.of(this).get(SearchViewModel::class.java)
 
         search_results.layoutManager = LinearLayoutManager(this)
@@ -46,7 +48,16 @@ class SearchActivity : AppCompatActivity() {
         val adapter = SearchResultsAdapter()
         adapter.setActivityForTransition(this)
         search_results.adapter = adapter
-        model.searchByName("")
+
+        val intent = intent
+        if(SearchIntents.ACTION_SEARCH == intent.action){
+            val query = intent.getStringExtra(SearchManager.QUERY)
+            model.searchByName(query)
+        }
+        else{
+            model.searchByName("")
+        }
+
         model.searchResults.observe(this, androidx.lifecycle.Observer {
             it?.let {result->
                 if (result.isEmpty()){

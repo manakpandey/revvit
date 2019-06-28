@@ -104,7 +104,7 @@
                 xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/adView_fac_details"
                 ads:adSize = "SMART_BANNER"
-                ads:adUnitId = "ca-app-pub-3940256099942544/6300978111"
+                ads:adUnitId = "ca-app-pub-7701305199379152/3227645095"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
         </com.google.android.gms.ads.AdView>
@@ -114,7 +114,7 @@
             android:layout_below="@+id/adView_cover"
             android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:elevation="5dp"
             android:layout_margin="2dp"
             android:background="#2c3e50"

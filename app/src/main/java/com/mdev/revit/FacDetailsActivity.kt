@@ -31,7 +31,7 @@ class FacDetailsActivity : AppCompatActivity() {
 
         setupWindowAnimation()
 
-        val adRequest = AdRequest.Builder().addTestDevice("49981328ED379EE87B9840F843BFAA61").build()
+        val adRequest = AdRequest.Builder().build()
         adView_fac_details.loadAd(adRequest)
 
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

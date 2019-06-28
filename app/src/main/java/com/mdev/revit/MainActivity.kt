@@ -10,7 +10,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity(),NavigationHost {
         auth = FirebaseAuth.getInstance()
         setupNavMenu()
         anonymousLogin()
-        val adRequest = AdRequest.Builder().addTestDevice("49981328ED379EE87B9840F843BFAA61").build()
+        val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
 
         if (savedInstanceState != null) {
