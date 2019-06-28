@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.transition.Fade
 import android.util.Log
@@ -104,6 +105,11 @@ class MainActivity : AppCompatActivity(),NavigationHost {
             this.moveTaskToBack(true)
     }
 
+    override fun onResume() {
+        super.onResume()
+        setupNavMenu()
+    }
+
     private fun setupNavMenu(){
         nav_menu_drawer.fitsSystemWindows = true
 
@@ -113,13 +119,12 @@ class MainActivity : AppCompatActivity(),NavigationHost {
             }
         }
 
+        nav_menu.menu.clear()
         if (!auth.currentUser?.email.isNullOrEmpty()){
-            nav_menu.menu.setGroupVisible(R.id.nav_menu_logged_in,true)
-            nav_menu.menu.setGroupVisible(R.id.nav_menu_logged_out,false)
+            menuInflater.inflate(R.menu.nav_menu_logged_in, nav_menu.menu)
         }
         else{
-            nav_menu.menu.setGroupVisible(R.id.nav_menu_logged_in,false)
-            nav_menu.menu.setGroupVisible(R.id.nav_menu_logged_out,true)
+            menuInflater.inflate(R.menu.nav_menu_logged_out, nav_menu.menu)
         }
 
         nav_menu.setNavigationItemSelectedListener {item->
@@ -129,9 +134,12 @@ class MainActivity : AppCompatActivity(),NavigationHost {
                     val intent = Intent(this@MainActivity,LoginFFCSActivity::class.java)
                     startActivity(intent,bundle)
                 }
-                R.id.nav_reset_tt1 -> {
-                    val intent = Intent(this@MainActivity,LoginFFCSActivity::class.java)
-                    startActivity(intent,bundle)
+                R.id.privacy_policy -> {
+                    val webPage: Uri = Uri.parse(getString(R.string.privacy_policy_url))
+                    val intent = Intent(Intent.ACTION_VIEW, webPage)
+                    if (intent.resolveActivity(packageManager) != null) {
+                        startActivity(intent)
+                    }
                 }
                 R.id.nav_login -> {
                     val intent = Intent(this@MainActivity,LoginActivity::class.java)

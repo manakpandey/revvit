@@ -2,6 +2,7 @@ package com.mdev.revit
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.transition.Fade
@@ -38,6 +39,14 @@ class AddReviewActivity : AppCompatActivity() {
         }
 
         back_button_add_review.setOnClickListener { finish() }
+
+        privacy_policy_review.setOnClickListener {
+            val webPage: Uri = Uri.parse(getString(R.string.privacy_policy_url))
+            val intent = Intent(Intent.ACTION_VIEW, webPage)
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            }
+        }
     }
     companion object{
         const val REVIEW_ID = "com.ugdev.review.REPLY"

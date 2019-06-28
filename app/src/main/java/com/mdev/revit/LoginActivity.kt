@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener {
     private fun updateUI(user: FirebaseUser?) {
         if (user!=null){
             toast("Signed In")
-            startActivity<MainActivity>()
+            finish()
         }
         else{
             Snackbar.make(google_login_layout,"Login Failed!",Snackbar.LENGTH_LONG).show()
