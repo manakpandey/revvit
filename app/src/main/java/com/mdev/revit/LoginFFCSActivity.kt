@@ -14,8 +14,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login_ffcs.*
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import kotlin.Exception
 
 class LoginFFCSActivity : AppCompatActivity() {
 
@@ -101,69 +103,76 @@ class LoginFFCSActivity : AppCompatActivity() {
             val sharedPref = context.getSharedPreferences(context.getString(R.string.shared_preference_schedule), Context.MODE_PRIVATE)
             sharedPref.edit().clear().apply()
             view?.evaluateJavascript("(function(){ return document.course_regular.children[1].rows.length })();") {
-                val rowNum = it.toInt() - 3
-                for (i in 1..rowNum) {
-                    view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[0].innerText })();") { pos ->
-                        var cc = 1
-                        var ct = 2
-                        var cty = 3
-                        var sl = 7
-                        var v = 8
-                        var fac = 9
-                        if (pos.length <= 2) {
-                            cc = 3
-                            ct = 4
-                            cty = 5
-                            sl = 9
-                            v = 10
-                            fac = 11
-                        }
-                        view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$sl].innerText })();") { slot ->
-                            if (slot.removeSurrounding("\"").toLowerCase() != "nil"){
-                                val slots = slot.removeSurrounding("\"").split("+")
-                                val details = mutableSetOf<String>()
+                try {
+                    val rowNum = it.toInt() - 3
+                    for (i in 1..rowNum) {
+                        view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[0].innerText })();") { pos ->
+                            var cc = 1
+                            var ct = 2
+                            var cty = 3
+                            var sl = 7
+                            var v = 8
+                            var fac = 9
+                            if (pos.length <= 2) {
+                                cc = 3
+                                ct = 4
+                                cty = 5
+                                sl = 9
+                                v = 10
+                                fac = 11
+                            }
+                            view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$sl].innerText })();") { slot ->
+                                if (slot.removeSurrounding("\"").toLowerCase() != "nil") {
+                                    val slots = slot.removeSurrounding("\"").split("+")
+                                    val details = mutableSetOf<String>()
 
-                                view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$cc].innerText })();") { cCode ->
-                                    details.add("a: ${cCode.removeSurrounding("\"")}")
+                                    view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$cc].innerText })();") { cCode ->
+                                        details.add("a: ${cCode.removeSurrounding("\"")}")
 
-                                    view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$ct].innerText })();") { cTitle ->
-                                        details.add("b: ${cTitle.removeSurrounding("\"")}")
+                                        view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$ct].innerText })();") { cTitle ->
+                                            details.add("b: ${cTitle.removeSurrounding("\"")}")
 
-                                        view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$cty].innerText })();") { cType ->
-                                            details.add("c: ${cType.removeSurrounding("\"")}")
+                                            view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$cty].innerText })();") { cType ->
+                                                details.add("c: ${cType.removeSurrounding("\"")}")
 
-                                            view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$v].innerText })();") { venue ->
-                                                details.add("d: ${venue.removeSurrounding("\"")}")
+                                                view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$v].innerText })();") { venue ->
+                                                    details.add("d: ${venue.removeSurrounding("\"")}")
 
-                                                view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$fac].innerText })();") { faculty ->
-                                                    details.add("e: ${faculty.removeSurrounding("\"")}")
+                                                    view.evaluateJavascript("(function(){ return document.course_regular.children[1].rows[$i].children[$fac].innerText })();") { faculty ->
+                                                        details.add("e: ${faculty.removeSurrounding("\"")}")
 
-                                                    for (j in 0 until slots.size) {
-                                                        with(sharedPref.edit()) {
-                                                            putStringSet(slots[j], details)
-                                                            apply()
+                                                        for (j in 0 until slots.size) {
+                                                            with(sharedPref.edit()) {
+                                                                putStringSet(slots[j], details)
+                                                                apply()
+                                                            }
                                                         }
+
+
                                                     }
-
-
                                                 }
                                             }
                                         }
                                     }
+
+
                                 }
-
-
-
-
-
                             }
                         }
                     }
-                }
 
-                with(sharedPref.edit()){
-                    putBoolean("tt_set",true)
-                    apply()
+                    with(sharedPref.edit()) {
+                        putBoolean("tt_set", true)
+                        apply()
+                    }
+                }
+                catch (e: Exception){
+                    Log.d(TAG, "Error Occurred: $e")
+                    context.longToast("Error Occurred").show()
+                    with(sharedPref.edit()) {
+                        putBoolean("tt_set", false)
+                        apply()
+                    }
                 }
             }
             context.startActivity<MainActivity>()
