@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mdev.revit.R
 import kotlinx.android.synthetic.main.fragment_login_ffcs.view.*
 
 class LoginFFCSFragment: Fragment() {
@@ -14,7 +15,7 @@ class LoginFFCSFragment: Fragment() {
         val view = inflater.inflate(R.layout.fragment_login_ffcs,container,false)
 
         view.login_ffcs_button.setOnClickListener {
-            val intent = Intent(activity,LoginFFCSActivity::class.java)
+            val intent = Intent(activity, LoginFFCSActivity::class.java)
             val bundle = ActivityOptions.makeSceneTransitionAnimation(activity).toBundle()
             activity?.startActivity(intent,bundle)
         }

@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -13,6 +13,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mdev.revit.R
 import kotlinx.android.synthetic.main.activity_login_ffcs.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.startActivity
@@ -39,12 +40,14 @@ class LoginFFCSActivity : AppCompatActivity() {
                 val ttUrl = doc["time_table"].toString()
                 val urls = listOf(loginUrl,homeUrl,ttUrl)
 
-                web_view.webViewClient = MyWebViewClient(this,
+                web_view.webViewClient = MyWebViewClient(
+                    this,
                     progress_circular_ffcs,
                     progress_circular_ffcs_text,
                     error_screen,
                     back_button_ffcs_login,
-                    urls)
+                    urls
+                )
                 web_view.settings.javaScriptEnabled = true
                 web_view.loadUrl(urls[0])
             }

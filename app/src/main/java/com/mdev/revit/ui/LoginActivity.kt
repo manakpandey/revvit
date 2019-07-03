@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.content.Intent
 import android.os.Build
@@ -17,8 +17,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.mdev.revit.R
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class LoginActivity : AppCompatActivity(),View.OnClickListener {

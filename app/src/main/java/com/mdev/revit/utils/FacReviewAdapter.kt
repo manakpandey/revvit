@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.utils
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.QuerySnapshot
+import com.mdev.revit.R
 
 class ReviewOnlyAdapter(private val documents : QuerySnapshot): RecyclerView.Adapter<ReviewOnlyAdapter.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {

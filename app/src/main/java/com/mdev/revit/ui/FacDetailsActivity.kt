@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.app.Activity
 import android.app.ActivityOptions
@@ -17,6 +17,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.mdev.revit.R
+import com.mdev.revit.utils.ReviewOnlyAdapter
 import kotlinx.android.synthetic.main.activity_fac_details.*
 import kotlinx.android.synthetic.main.no_reviews.*
 import org.jetbrains.anko.longToast
@@ -55,9 +58,10 @@ class FacDetailsActivity : AppCompatActivity() {
 
 
         db.collection("user_review")
-            .whereEqualTo("faculty",faculty)
-            .whereEqualTo("school",school)
+            .whereEqualTo("faculty", faculty)
+            .whereEqualTo("school", school)
             .whereEqualTo("status",9001)
+            .orderBy("timestamp",Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { documents ->
                 loading_circular.visibility = View.GONE
@@ -101,7 +105,8 @@ class FacDetailsActivity : AppCompatActivity() {
                 val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                 intent.putExtra("faculty", faculty)
                 intent.putExtra("school", school)
-                startActivityForResult(intent, addReviewRequestCode,bundle)
+                startActivityForResult(intent,
+                    addReviewRequestCode,bundle)
             } else {
                 longToast("You must be Signed In to Add Reviews!")
                 startActivity<LoginActivity>()

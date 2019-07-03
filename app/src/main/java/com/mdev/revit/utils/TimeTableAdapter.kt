@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.utils
 
 import android.content.Context
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mdev.revit.R
 import kotlinx.android.synthetic.main.tt_day.*
 
 class TimeTableAdapter(childFragmentManager: FragmentManager) : FragmentPagerAdapter(childFragmentManager) {

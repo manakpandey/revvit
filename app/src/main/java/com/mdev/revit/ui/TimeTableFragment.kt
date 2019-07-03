@@ -1,10 +1,12 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mdev.revit.R
+import com.mdev.revit.utils.TimeTableAdapter
 import kotlinx.android.synthetic.main.fragment_time_table.view.*
 import java.util.*
 

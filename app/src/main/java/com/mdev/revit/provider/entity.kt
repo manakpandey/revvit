@@ -1,4 +1,4 @@
-package com.mdev.revit.roomDatabase
+package com.mdev.revit.provider
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

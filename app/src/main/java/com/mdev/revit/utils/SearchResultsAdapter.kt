@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.utils
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mdev.revit.roomDatabase.FacDetails
+import com.mdev.revit.R
+import com.mdev.revit.provider.FacDetails
+import com.mdev.revit.ui.FacDetailsActivity
+import com.mdev.revit.ui.SearchActivity
 
 class SearchResultsAdapter : RecyclerView.Adapter<SearchResultsAdapter.ViewHolder>() {
 
@@ -32,9 +35,6 @@ class SearchResultsAdapter : RecyclerView.Adapter<SearchResultsAdapter.ViewHolde
                 intent.putExtra("school",results[position].school)
                 intent.putExtra("designation",results[position].designation)
                 v.context.startActivity(intent,bundle)
-//                v.context.startActivity<FacDetailsActivity>("faculty" to results[position].name,
-//                    "school" to results[position].school,
-//                    "designation" to results[position].designation)
             }
         }
     }

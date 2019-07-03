@@ -1,8 +1,7 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Build
@@ -19,6 +18,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.actions.SearchIntents
+import com.mdev.revit.R
+import com.mdev.revit.utils.SearchResultsAdapter
+import com.mdev.revit.utils.SearchViewModel
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {

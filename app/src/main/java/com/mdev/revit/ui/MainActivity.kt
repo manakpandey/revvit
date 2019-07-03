@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.app.Activity
 import android.app.ActivityOptions
@@ -18,12 +18,15 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mdev.revit.utils.NavigationHost
+import com.mdev.revit.R
+import com.mdev.revit.utils.SearchViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ad_banner.*
 import kotlinx.android.synthetic.main.app_bar.*
 import org.jetbrains.anko.longToast
 
-class MainActivity : AppCompatActivity(),NavigationHost {
+class MainActivity : AppCompatActivity(), NavigationHost {
 
     private lateinit var auth: FirebaseAuth
 
@@ -63,7 +66,7 @@ class MainActivity : AppCompatActivity(),NavigationHost {
 
 
         search_fac.setOnClickListener {
-            val intent = Intent(this@MainActivity,SearchActivity::class.java)
+            val intent = Intent(this@MainActivity, SearchActivity::class.java)
             val options = ActivityOptions.makeSceneTransitionAnimation(this)
             startActivity(intent,options.toBundle())
         }
@@ -131,7 +134,7 @@ class MainActivity : AppCompatActivity(),NavigationHost {
             val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
             when(item.itemId){
                 R.id.nav_reset_tt -> {
-                    val intent = Intent(this@MainActivity,LoginFFCSActivity::class.java)
+                    val intent = Intent(this@MainActivity, LoginFFCSActivity::class.java)
                     startActivity(intent,bundle)
                 }
                 R.id.privacy_policy -> {
@@ -142,7 +145,7 @@ class MainActivity : AppCompatActivity(),NavigationHost {
                     }
                 }
                 R.id.nav_login -> {
-                    val intent = Intent(this@MainActivity,LoginActivity::class.java)
+                    val intent = Intent(this@MainActivity, LoginActivity::class.java)
                     startActivity(intent,bundle)
                 }
                 R.id.nav_logout ->{
@@ -151,7 +154,7 @@ class MainActivity : AppCompatActivity(),NavigationHost {
                     finish()
                 }
                 R.id.nav_feedback -> {
-                    val intent = Intent(this@MainActivity,FeedbackActivity::class.java)
+                    val intent = Intent(this@MainActivity, FeedbackActivity::class.java)
                     startActivityForResult(intent, feedbackRequestCode,bundle)
                 }
             }

@@ -1,10 +1,10 @@
-package com.mdev.revit
+package com.mdev.revit.utils
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.mdev.revit.roomDatabase.FacDetails
-import com.mdev.revit.roomDatabase.FacultyRepo
-import com.mdev.revit.roomDatabase.TheDatabase
+import com.mdev.revit.provider.FacDetails
+import com.mdev.revit.provider.FacultyRepo
+import com.mdev.revit.provider.TheDatabase
 
 class SearchViewModel(application: Application): AndroidViewModel(application){
 

@@ -1,4 +1,4 @@
-package com.mdev.revit
+package com.mdev.revit.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.transition.Fade
 import androidx.appcompat.app.AppCompatActivity
+import com.mdev.revit.R
 import kotlinx.android.synthetic.main.activity_add_review.*
 
 class AddReviewActivity : AppCompatActivity() {
