@@ -13,6 +13,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -25,9 +26,11 @@ import kotlinx.android.synthetic.main.no_reviews.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import kotlin.random.Random
 
 class FacDetailsActivity : AppCompatActivity() {
 
+    private lateinit var mInterstitialAd: InterstitialAd
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fac_details)
@@ -36,6 +39,11 @@ class FacDetailsActivity : AppCompatActivity() {
 
         val adRequest = AdRequest.Builder().build()
         adView_fac_details.loadAd(adRequest)
+
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = "ca-app-pub-7701305199379152/1382777045"
+        val adRequestInterstitialAd = AdRequest.Builder().build()
+        mInterstitialAd.loadAd(adRequestInterstitialAd)
 
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
@@ -96,6 +104,17 @@ class FacDetailsActivity : AppCompatActivity() {
         fade.duration = 125
         window.enterTransition = fade
         window.exitTransition = fade
+    }
+
+    override fun finish() {
+        super.finish()
+        if (Random.nextBoolean()) {
+            if (mInterstitialAd.isLoaded) {
+                mInterstitialAd.show()
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
+        }
     }
 
     private fun addReview(isConnected: Boolean,auth: FirebaseAuth){

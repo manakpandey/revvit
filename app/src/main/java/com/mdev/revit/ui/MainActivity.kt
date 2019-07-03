@@ -75,6 +75,8 @@ class MainActivity : AppCompatActivity(), NavigationHost {
     }
 
 
+
+
     private fun anonymousLogin() {
         if (auth.currentUser==null){
             auth.signInAnonymously()
