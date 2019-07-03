@@ -37,8 +37,7 @@
     <string name="privacy_policy_url">https://sites.google.com/view/revvitprivacypolicy</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="read_privacy_policy">Read Privacy Policy</string>
-    <string name="appwidget_text">Timetable widget</string>
-    <string name="add_widget">Add widget</string>
     <string name="widget_row_icon_description">Course type icon</string>
+    <string name="first_review">Be the first one to add a review.</string>
 
 </resources>

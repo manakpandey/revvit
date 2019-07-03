@@ -2,11 +2,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/widget_margin"
-                android:background="#BF000711">
+                android:background="#99FFFFFF">
 
     <ListView
             android:id="@+id/widget_list_view"
-            android:divider="#FFFFFF"
+            android:divider="#B3000000"
             android:dividerHeight="1dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

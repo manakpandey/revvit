@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.AppCompatImageView
             android:src="@drawable/ic_quill_drawing_a_line_128"
             android:layout_gravity="center"
+            android:id="@+id/quill"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:text="@string/first_review"
+            android:textAlignment="center"
+            android:id="@+id/first_review_text"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:layout_below="@id/quill"
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     <com.google.android.material.button.MaterialButton
             android:text="@string/write_a_review"
-            style="@style/myButton"
             android:id="@+id/add_review_button_large"
-            android:layout_gravity="bottom|center_horizontal"
+            style="@style/myButton"
+            app:icon="@drawable/ic_write"
+            app:iconTint="@color/colorPrimaryDark"
+            android:layout_marginBottom="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/first_review_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     <TextView
             android:text="@string/no_reviews_yet"
             android:textSize="25sp"
+            android:layout_centerHorizontal="true"
             android:textColor="@android:color/black"
             android:fontFamily="@font/greatvibes_regular"
             android:layout_gravity="top|center_horizontal"
@@ -28,4 +46,4 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-</FrameLayout>
+</RelativeLayout>
