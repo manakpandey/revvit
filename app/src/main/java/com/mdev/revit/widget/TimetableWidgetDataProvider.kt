@@ -125,6 +125,15 @@ class TimetableWidgetDataProvider(private val mContext: Context, val mIntent: In
                 schedule.add(data)
             }
         }
+        var emptyFlag = true
+        for(i in schedule){
+            if (i["slot"] == null){
+                emptyFlag = false
+            }
+        }
+        if (emptyFlag){
+            schedule.clear()
+        }
     }
 
     private fun getWeekDay(): Int {

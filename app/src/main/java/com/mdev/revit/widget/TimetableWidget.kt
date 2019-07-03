@@ -38,6 +38,7 @@ class TimetableWidget : AppWidgetProvider() {
             val views = RemoteViews(context.packageName, R.layout.timetable_widget)
 
             views.setRemoteAdapter(R.id.widget_list_view, Intent(context, TimetableWidgetService::class.java))
+            views.setEmptyView(R.id.widget_list_view, R.id.no_class_today)
             // Instruct the widget manager to update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
