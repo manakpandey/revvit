@@ -2,6 +2,8 @@ package com.mdev.revit.ui
 
 import android.app.Activity
 import android.app.ActivityOptions
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -13,6 +15,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -21,10 +24,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.mdev.revit.utils.NavigationHost
 import com.mdev.revit.R
 import com.mdev.revit.utils.SearchViewModel
+import com.mdev.revit.widget.TimetableWidget
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ad_banner.*
 import kotlinx.android.synthetic.main.app_bar.*
 import org.jetbrains.anko.longToast
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), NavigationHost {
 
@@ -41,8 +46,14 @@ class MainActivity : AppCompatActivity(), NavigationHost {
             enterTransition = fade
         }
 
-        val model = ViewModelProviders.of(this).get(SearchViewModel::class.java)
-        model.searchByName("")
+        val widgetIntent = Intent(this, TimetableWidget::class.java)
+        widgetIntent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+
+        val ids = AppWidgetManager.getInstance(application)
+            .getAppWidgetIds(ComponentName(application, TimetableWidget::class.java))
+        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+        sendBroadcast(widgetIntent)
+
 
         MobileAds.initialize(this,getString(R.string.ad_mob_id))
         FirebaseApp.initializeApp(this)
@@ -66,16 +77,13 @@ class MainActivity : AppCompatActivity(), NavigationHost {
 
 
         search_fac.setOnClickListener {
-            val intent = Intent(this@MainActivity, SearchActivity::class.java)
+            val searchIntent = Intent(this@MainActivity, SearchActivity::class.java)
             val options = ActivityOptions.makeSceneTransitionAnimation(this)
-            startActivity(intent,options.toBundle())
+            startActivity(searchIntent,options.toBundle())
         }
 
 
     }
-
-
-
 
     private fun anonymousLogin() {
         if (auth.currentUser==null){
@@ -106,8 +114,9 @@ class MainActivity : AppCompatActivity(), NavigationHost {
     override fun onBackPressed() {
         if (nav_menu_drawer.isDrawerOpen(GravityCompat.START))
             nav_menu_drawer.closeDrawer(GravityCompat.START)
-        else
+        else {
             this.moveTaskToBack(true)
+        }
     }
 
     override fun onResume() {

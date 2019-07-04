@@ -40,6 +40,9 @@ class TimetableWidgetDataProvider(private val mContext: Context, val mIntent: In
             view.setTextViewText(R.id.title_widget, schedule[position]["title"])
             view.setTextViewText(R.id.time_widget, schedule[position]["time"])
             view.setTextViewText(R.id.venue_widget, schedule[position]["venue"])
+
+            val fillInIntent = Intent()
+            view.setOnClickFillInIntent(R.id.widget_row, fillInIntent)
             return view
         }
         else{

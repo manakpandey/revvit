@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_login_ffcs.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
-import kotlin.Exception
+
 
 class LoginFFCSActivity : AppCompatActivity() {
 
