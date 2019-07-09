@@ -2,7 +2,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/widget_margin"
-                android:background="#99FFFFFF">
+                android:background="#B3000000">
 
     <ListView
             android:id="@+id/widget_list_view"
@@ -20,11 +20,23 @@
         <TextView
                 android:id="@+id/no_data_text"
                 android:layout_centerInParent="true"
+                android:padding="10dp"
                 android:textAlignment="center"
                 android:textSize="25sp"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
     </RelativeLayout>
+
+    <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_baseline_refresh_24px"
+            android:id="@+id/update"
+            android:layout_gravity="bottom|end"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/update_widget"/>
 
 </FrameLayout>

@@ -39,5 +39,6 @@
     <string name="read_privacy_policy">Read Privacy Policy</string>
     <string name="widget_row_icon_description">Course type icon</string>
     <string name="first_review">Be the first one to add a review.</string>
+    <string name="update_widget">Update Widget</string>
 
 </resources>

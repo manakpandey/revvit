@@ -76,7 +76,7 @@ class TimetableWidgetDataProvider(private val mContext: Context, val mIntent: In
             "H2/L63","K2/L64"
         ))
         refSlots.append(2, listOf(
-            "C1/L13","A1/L14","F1/L15","/L16","/L17","/L18",
+            "C1/L13","A1/L14","F1/L15","TD1/L16","/L17","/L18",
             "C2/L43","A2/L44","F2/L45","TD2/L46","TBB2/L47","/L48",
             "H3/L65","K3/L66"
         ))
@@ -86,7 +86,7 @@ class TimetableWidgetDataProvider(private val mContext: Context, val mIntent: In
             "H4/L67","K4/L68"
         ))
         refSlots.append(4, listOf(
-            "E1/L25","C1/L26","TA1/L27","TF1/L28","TD1/L29","/L30",
+            "E1/L25","C1/L26","TA1/L27","TF1/L28","TDD1/L29","/L30",
             "E2/L55","C2/L56","TA2/L57","TF2/L58","TDD2/L59","/L60",
             "H5/L69","K5/L70"
         ))

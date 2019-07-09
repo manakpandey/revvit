@@ -46,14 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationHost {
             enterTransition = fade
         }
 
-        val widgetIntent = Intent(this, TimetableWidget::class.java)
-        widgetIntent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-
-        val ids = AppWidgetManager.getInstance(application)
-            .getAppWidgetIds(ComponentName(application, TimetableWidget::class.java))
-        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-        sendBroadcast(widgetIntent)
-
 
         MobileAds.initialize(this,getString(R.string.ad_mob_id))
         FirebaseApp.initializeApp(this)
