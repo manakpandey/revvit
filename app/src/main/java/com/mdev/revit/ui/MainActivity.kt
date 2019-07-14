@@ -2,8 +2,6 @@ package com.mdev.revit.ui
 
 import android.app.Activity
 import android.app.ActivityOptions
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -13,23 +11,18 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mdev.revit.utils.NavigationHost
 import com.mdev.revit.R
-import com.mdev.revit.utils.SearchViewModel
-import com.mdev.revit.widget.TimetableWidget
+import com.mdev.revit.utils.NavigationHost
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ad_banner.*
 import kotlinx.android.synthetic.main.app_bar.*
 import org.jetbrains.anko.longToast
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), NavigationHost {
 
@@ -45,7 +38,6 @@ class MainActivity : AppCompatActivity(), NavigationHost {
             exitTransition = fade
             enterTransition = fade
         }
-
 
         MobileAds.initialize(this,getString(R.string.ad_mob_id))
         FirebaseApp.initializeApp(this)

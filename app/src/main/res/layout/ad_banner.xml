@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-        app:cardCornerRadius="5dp"
+<com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/adView"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-7701305199379152/5130510430"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            ads:adSize = "SMART_BANNER"
-            ads:adUnitId = "ca-app-pub-7701305199379152/5130510430"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-    </com.google.android.gms.ads.AdView>
-</androidx.cardview.widget.CardView>
+        android:layout_height="wrap_content">
+</com.google.android.gms.ads.AdView>

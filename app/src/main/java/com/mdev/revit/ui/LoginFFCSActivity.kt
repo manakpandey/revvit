@@ -77,9 +77,9 @@ class LoginFFCSActivity : AppCompatActivity() {
             if (view?.url == urls[1]){
                 view.visibility = View.GONE
                 progress_text.visibility = View.VISIBLE
-                back_button.visibility = View.GONE
             }
             progress_bar.visibility = View.VISIBLE
+            back_button.visibility = View.GONE
         }
 
         override fun onPageFinished(view: WebView?, url: String?) {
@@ -151,6 +151,14 @@ class LoginFFCSActivity : AppCompatActivity() {
                                                             }
                                                         }
 
+                                                        if (i == rowNum){
+                                                            with(sharedPref.edit()) {
+                                                                putBoolean("tt_set", true)
+                                                                apply()
+                                                            }
+                                                            context.startActivity<MainActivity>()
+                                                        }
+
 
                                                     }
                                                 }
@@ -163,11 +171,6 @@ class LoginFFCSActivity : AppCompatActivity() {
                             }
                         }
                     }
-
-                    with(sharedPref.edit()) {
-                        putBoolean("tt_set", true)
-                        apply()
-                    }
                 }
                 catch (e: Exception){
                     Log.d(TAG, "Error Occurred: $e")
@@ -178,7 +181,6 @@ class LoginFFCSActivity : AppCompatActivity() {
                     }
                 }
             }
-            context.startActivity<MainActivity>()
         }
 
     }

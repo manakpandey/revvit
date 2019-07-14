@@ -20,37 +20,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_fac_details"
-                android:layout_below="@+id/network_status_fac_details"
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_fac_details"
+            android:layout_below="@+id/network_status_fac_details"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
-            <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <ImageButton
-                        android:src="@drawable/ic_round_arrow_back_24px"
-                        android:layout_centerVertical="true"
-                        android:id="@+id/back_button_fac_details"
-                        android:contentDescription="@string/back_button_description"
-                        style="@style/AppBarButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                android:layout_height="match_parent">
+            <ImageButton
+                    android:src="@drawable/ic_round_arrow_back_24px"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back_button_fac_details"
+                    android:contentDescription="@string/back_button_description"
+                    style="@style/AppBarButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-                <ImageButton
-                        android:layout_alignParentEnd="true"
-                        android:id="@+id/add_review_button"
-                        android:layout_centerVertical="true"
-                        style="@style/AppBarButton"
-                        android:layout_marginEnd="20dp"
-                        android:src="@drawable/ic_write"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/add_review_button_description"/>
+            <ImageButton
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/add_review_button"
+                    android:layout_centerVertical="true"
+                    style="@style/AppBarButton"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_write"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/add_review_button_description"/>
 
-            </RelativeLayout>
+        </RelativeLayout>
 
-        </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
             android:layout_below="@id/toolbar_fac_details"
             android:orientation="vertical"
@@ -89,36 +89,29 @@
     </LinearLayout>
 
 
-    <androidx.cardview.widget.CardView
-            android:id="@+id/adView_cover"
+    <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:layout_below="@id/fac_details"
-            app:cardCornerRadius="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:id="@+id/adView_fac_details"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-7701305199379152/3227645095"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
-        <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adView_fac_details"
-                ads:adSize = "SMART_BANNER"
-                ads:adUnitId = "ca-app-pub-7701305199379152/3227645095"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-        </com.google.android.gms.ads.AdView>
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
+    </com.google.android.gms.ads.AdView>
 
     <View
-            android:layout_below="@+id/adView_cover"
+            android:layout_below="@+id/adView_fac_details"
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:elevation="5dp"
             android:layout_margin="2dp"
             android:background="#2c3e50"
-            android:orientation="vertical" />
+            android:orientation="vertical"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@+id/divider"
@@ -129,9 +122,9 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <include
+            android:layout_below="@+id/adView_fac_details"
             android:visibility="gone"
             android:id="@+id/no_reviews_page"
-            android:layout_below="@+id/adView_cover"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             layout="@layout/no_reviews"/>

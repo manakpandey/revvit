@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">revvit</string>
+    <string name="app_name">Revvit</string>
     <string name="shared_preference_schedule">com.revit.schedule</string>
     <string name="search_hint">Search Faculty</string>
     <string name="ad_mob_id">ca-app-pub-7701305199379152~6749688798</string>

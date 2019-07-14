@@ -12,9 +12,6 @@ import com.mdev.revit.ui.MainActivity
 import org.jetbrains.anko.toast
 
 
-/**
- * Implementation of App Widget functionality.
- */
 class TimetableWidget : AppWidgetProvider() {
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
